@@ -1,30 +1,17 @@
 package core
 
-import (
-	"reflect"
-)
-
+// 枚举类型
 type EnumType int
 
-type Enum struct {
-	Value int
-	Name  string
+// 枚举名称
+var EnumNames map[EnumType]string
+
+// 枚举值
+func (e EnumType) Value() int {
+	return int(e)
 }
 
-func New(enum EnumType) Enum {
-	name := ""
-	// 获取结构体反射
-	refEnum := reflect.ValueOf(enum)
-	// 获取反射方法
-	method := refEnum.MethodByName("Name")
-
-	// 验证反射方法是否有效
-	if valid := method.IsValid(); valid {
-		// 调用反射方法
-		values := method.Call(make([]reflect.Value, 0))
-		// 获取方法返回值
-		name = values[0].String()
-	}
-
-	return Enum{Value: int(enum), Name: name}
+// 枚举名称
+func (e EnumType) Name() string {
+	return EnumNames[e]
 }
