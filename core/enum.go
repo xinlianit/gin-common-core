@@ -1,5 +1,11 @@
 package core
 
+// 枚举结构
+type Enum struct {
+	Value int
+	Name  string
+}
+
 // 枚举类型
 type EnumType int
 
