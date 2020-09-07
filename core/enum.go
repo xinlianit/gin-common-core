@@ -4,19 +4,19 @@ package core
 type EnumType int
 
 // 枚举名称
-var EnumNames map[EnumType]string
+var EnumName map[EnumType]string
 
 // 包初始化
 func init() {
-	EnumNames = make(map[EnumType]string)
+	EnumName = make(map[EnumType]string)
 }
 
-// 枚举值
+// 获取枚举值
 func (e EnumType) Value() int {
 	return int(e)
 }
 
-// 枚举名称
+// 获取枚举名称
 func (e EnumType) Name() string {
-	return EnumNames[e]
+	return EnumName[e]
 }
